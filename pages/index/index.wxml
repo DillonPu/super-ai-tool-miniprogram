@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="container">
+  <block wx:for="{{tools}}" wx:for-item="item" wx:key="index_too_nav">
+    <navigator class="item" open-type="{{item.openType}}" url="{{item.url}}">
+      <view class="tool_nav">
+        <image src="{{item.icon}}"></image>
+        <view>{{item.label}}</view>
+        <view class="main_bgc price_label {{item.needPoint>0?'no_free':'free'}}">{{item.needPoint>0?item.needPoint+'积分/次':'免费'}}</view>
+      </view>
+    </navigator>
+  </block>
+  <!-- <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+</view>

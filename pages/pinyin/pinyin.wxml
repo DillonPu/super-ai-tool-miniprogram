@@ -1,0 +1,39 @@
+<!--pages/pinyin/pinyin.wxml-->
+<view>
+<!-- 输入翻译内容 -->
+<textarea bindinput="bindFromTranslateTXtAreaInput" placeholder="请输入需要转拼音的汉字，最大127个字符" class="from_translate_box" maxlength="127" value="{{originTxt}}"></textarea>
+
+<!-- 翻译按钮，开始翻译 -->
+<button class="main_bgc" bindtap="bindPinyin">拼音</button>
+
+<view class='table'>
+  <view class='tr'>
+    <view class='td_name'>原文：</view>
+    <view class='td_value'>{{pinyinInfo.origin}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>中音对照：</view>
+    <view class='td_value'>{{pinyinInfo.originAndPinyin}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>无声调：</view>
+    <view class='td_value'>{{pinyinInfo.tonePinYin}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>有声调：</view>
+    <view class='td_value'>{{pinyinInfo.markPinYin}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>首字母：</view>
+    <view class='td_value'>{{pinyinInfo.shortPinYin}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>繁体：</view>
+    <view class='td_value'>{{pinyinInfo.traditional}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>简体：</view>
+    <view class='td_value'>{{pinyinInfo.simplified}}</view>
+  </view>
+</view>
+</view>

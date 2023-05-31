@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/aichat/aichat",
+    "pages/aidraw/aidraw",
+    "pages/my/my",
+    "pages/mini_translate/miniTranslate",
+    "pages/mini_express/miniExpress",
+    "pages/mini_lookFruitsAndVeg/miniLookFruitsAndVeg",
+    "pages/pointLog/pointLog",
+    "pages/levelLog/levelLog",
+    "pages/aichatLog/aichatLog",
+    "pages/aidrawLog/aidrawLog",
+    "pages/aiRandomChat/aiRandomChat",
+    "pages/aiRobotChat/aiRobotChat",
+    "pages/feedbackAdd/feedbackAdd",
+    "pages/feedbackList/feedbackList",
+    "pages/feedbackDetail/feedbackDetail",
+    "pages/moneyLog/moneyLog",
+    "pages/pinyin/pinyin",
+    "pages/mini_lookPlant/mini_lookPlant",
+    "pages/mini_lookAnimal/mini_lookAnimal",
+    "pages/mini_handBarrage/mini_handBarrage"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "超级AI小助手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "Ai助手",
+        "iconPath": "images/icon/index_81_81.png",
+        "selectedIconPath": "images/icon/index_81x81_selected.png"
+      },
+      {
+        "pagePath": "pages/aichat/aichat",
+        "text": "Ai创作",
+        "iconPath": "images/icon/aichat_81x81.png",
+        "selectedIconPath": "images/icon/aichat_81x81_selected.png"
+      },
+      {
+        "pagePath": "pages/aidraw/aidraw",
+        "text": "Ai绘画",
+        "iconPath": "images/icon/aidraw_81x81.png",
+        "selectedIconPath": "images/icon/aidraw_81x81_selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "个人中心",
+        "iconPath": "images/icon/my_81x81.png",
+        "selectedIconPath": "images/icon/my_81x81_selected.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "chat_component":"/components/chatComponent/chat_component"
+  }
+}

@@ -1,0 +1,2 @@
+/* pages/aichatLog/aichatLog.wxss */
+@import "../../templates/chatLogTemplate/chatLogTemplate.wxss";

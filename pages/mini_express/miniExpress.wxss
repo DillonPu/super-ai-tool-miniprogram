@@ -1,0 +1,83 @@
+/* pages/mini_express/miniExpress.wxss */
+
+
+page {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.box{
+  display: flex;
+}
+.box picker{
+  flex: 1;
+  border: #c0c0c0  solid 1rpx;
+  border-radius: 20rpx;
+  height: 48rpx;
+  margin-top: 50rpx;
+  padding: 20rpx;
+  font-size: small;
+}
+
+.box input{
+  flex: 2;
+}
+.order_input {
+  width: auto;
+  border: #c0c0c0 1rpx solid;
+  border-radius: 20rpx;
+  height: 88rpx;
+  margin-top: 50rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.timeLine {
+  margin: 60rpx  0;
+}
+
+.on {
+  padding-bottom: 30px;
+  display: flex;
+  width: 100%;
+  
+}
+
+.timeLine view:last-child {
+  padding-bottom: 2rpx;
+}
+
+.timeLine view:first-child {
+  padding-top: 50rpx;
+}
+
+.p {
+  width: 24%;
+  font-size: 32rpx;
+  font-weight: 300;
+  text-align: right;
+  padding-right: 50rpx;
+  color: #000000;
+}
+
+.text {
+  display: block;
+  color: #000000;
+  font-size: 12px;
+}
+
+.con {
+  display: inline-block;
+  padding-left: 30rpx;
+  width: calc(100% - 300rpx);
+  font-weight: 300;
+  font-size: 28rpx;
+}
+
+.END {
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+  padding: 30rpx 50rpx 30rpx 50rpx;
+}

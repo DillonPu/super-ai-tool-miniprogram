@@ -1,0 +1,116 @@
+/* pages/my/my.wxss */
+page {
+  background-color: #f8f8f8;
+}
+
+.head {
+  height: 400rpx;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  color: #fbf1ef;
+}
+
+.btn_login{
+  font-size: 30rpx;
+  margin-top: 40rpx;
+}
+
+.comm-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head image {
+  width: 120rpx;
+  height: 120rpx;
+  border: 5rpx solid #FFFFFF;
+  border-radius: 100%;
+}
+
+.head .name {
+  padding-top: 30rpx;
+  font-size: 35rpx;
+  color: black;
+  
+}
+
+.head .nickname_input{
+  padding-top: 30rpx;
+  font-size: 35rpx;
+  color: black;
+  border: 1rpx solid #c0c0c0;
+}
+
+.head .remarks {
+  padding-top: 10rpx;
+  font-size: 24rpx;
+  color: black;
+}
+
+.home-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20rpx 0;
+  height: 180rpx;
+  border-radius: 5rpx;
+  background-color: #FFFFFF;
+}
+
+.home-menu .row {
+  width: 30%;
+  font-size: 28rpx;
+  font-weight: bold;
+  flex-direction: column;
+}
+
+.home-menu .row view {
+  line-height: 50rpx;
+}
+
+.home-menu .edge {
+  border-left: 5rpx solid #f1f1f1;
+  border-right: 5rpx solid #f1f1f1;
+}
+
+
+.list-menu {
+  background-color: #FFFFFF;
+}
+
+.list-menu .cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+  border-top: 5rpx solid #f8f8f8;
+}
+
+.list-menu .cell .left-icon {
+  width: 15%;
+}
+
+.list-menu .cell .left-icon image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.list-menu .cell .txt {
+  width: 75%;
+  font-size: 26rpx;
+}
+
+.list-menu .cell .right-icon {
+  width: 10%;
+}
+
+.list-menu .cell .right-icon image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.sign_img{
+  width: 60rpx;
+  height: 30rpx;
+}

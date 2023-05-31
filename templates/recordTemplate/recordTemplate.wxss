@@ -1,0 +1,47 @@
+.table {
+  border: 1rpx solid #eee;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 120rpx;
+}
+
+.td_index{
+  flex: 1;
+  text-align: center;
+  font-size: small;
+}
+.td_time{
+  flex: 3;
+  font-size: small;
+}
+.td_value{
+  flex: 3;
+  font-size: small;
+}
+.th{
+  text-align: center;
+}
+.td{
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.add_class{
+  color: red;
+  padding-left: 5rpx;
+  padding-left: 5rpx;
+  font-weight: bold;
+}
+.subract_class{
+  color: green;
+  font-weight: bold;
+}
+
+.bg-gray {
+  background: #eee;
+}

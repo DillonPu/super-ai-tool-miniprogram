@@ -1,0 +1,33 @@
+<!--pages/feedbackList/feedbackList.wxml-->
+<view>
+<button class="main_bgc" bindtap="gotoAddFeedbackView">添加反馈</button>
+  <block class='table' wx:if="{{feedbackList.length>0}}">
+		<view class='tr'>
+      <view class='td_index th bg-color'>序号</view>
+			<view class='td_time th bg-color'>反馈时间</view>
+			<view class='td_title th bg-color'>反馈标题</view>
+      <view class='td_is_answer th bg-color'>是否回复</view>
+		</view>
+		<block wx:for="{{feedbackList}}" wx:key="index">
+			<view class='tr bg-gray' wx:if="{{index%2==0}}" data-feedback-index="{{index}}" bindtap="getFeedbackDetail">
+      	<view class='td_index td'>{{index+1}}</view>
+				<view class='td_time td'>{{item.createTime}}</view>
+				<view class='td_title td'>{{item.questionTitle}}</view>
+        <view class="td_is_answer td {{item.isAnswer?'hasAnswer':'noAnswer'}}">
+          {{item.isAnswer?'已回复':'未回复'}}
+        </view>
+			</view>
+      <view class='tr' data-feedback-index="{{index}}" bindtap="getFeedbackDetail" wx:else >
+        <view class='td_index td'>{{index+1}}</view>
+				<view class='td_time td'>{{item.createTime}}</view>
+				<view class='td_title td'>{{item.questionTitle}}</view>
+        <view class="td_is_answer td {{item.isAnswer?'hasAnswer':'noAnswer'}}">
+          {{item.isAnswer?'已回复':'未回复'}}
+        </view>
+			</view>
+		</block>
+	</block>
+	<block wx:else> 
+  <view class="no_result">暂无反馈记录</view>
+  </block>
+</view>

@@ -1,0 +1,47 @@
+<!--导航按钮  -->
+<view class='table'>
+  <view class='tr'>
+    <view class='td_name'>反馈ID：</view>
+    <view class='td_value'>{{detail.id}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>反馈时间：</view>
+    <view class='td_value'>{{detail.createTime}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>反馈标签：</view>
+    <view class='td_value'>{{detail.questionType}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>反馈标题：</view>
+    <view class='td_value'>{{detail.questionTitle}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>反馈内容：</view>
+    <view class='td_value'>{{detail.questionDesc}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td_name'>您的联系方式：</view>
+    <view class='td_value'>{{detail.contact}}</view>
+  </view>
+  <block wx:if="{{detail.isAnswer}}">
+    <view class='tr'>
+      <view class='td_name'>是否回复：</view>
+      <view class='td_value hasAnswer'>已回复</view>
+    </view>
+    <view class='tr'>
+      <view class='td_name'>回复时间：</view>
+      <view class='td_value'>{{detail.updateTime}}</view>
+    </view>
+    <view class='tr'>
+      <view class='td_name'>回复内容：</view>
+      <view class='td_value'>{{detail.answer}}</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='tr'>
+      <view class='td_name'>是否回复：</view>
+      <view class='td_value noAnswer'>未回复</view>
+    </view>
+  </block>
+</view>

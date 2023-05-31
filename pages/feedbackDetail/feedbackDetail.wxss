@@ -1,0 +1,31 @@
+/* pages/feedbackDetail/feedbackDetail.wxss */
+
+
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 120rpx;
+  border-bottom: 1rpx solid #c0c0c0 ;
+}
+
+.td_name{
+  flex: 1;
+  text-align: center;
+  font-size: small;
+  border-right: 1rpx solid #c0c0c0 ;
+}
+.td_value{
+  flex: 3;
+  font-size: small;
+  text-align: center;
+}
+
+.hasAnswer{
+  color: red;
+}
+
+.noAnswer{
+  color: #95ec69;
+}

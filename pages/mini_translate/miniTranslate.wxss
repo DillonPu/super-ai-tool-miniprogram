@@ -1,0 +1,41 @@
+/* pages/mini_translate/miniTranslate.wxss */
+
+.from_translate_box{
+  border: #c0c0c0  solid 1rpx;
+  width: auto;
+  margin:20rpx;
+  border-radius: 20rpx;
+}
+
+.to_translate_box{
+  border: #c0c0c0  solid 1rpx;
+  width: auto;
+  margin:20rpx;
+  border-radius: 20rpx;
+}
+
+.select_language_box {
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+}
+
+.select_language_box picker {
+  border: #c0c0c0  solid 1rpx;
+  border-radius: 10rpx;
+  padding: 10rpx;
+}
+
+.select_language_box .left_picker {
+  margin-left: 20rpx;
+}
+.select_language_box .right_picker {
+  margin-right: 20rpx;
+}
+
+.select_language_box image {
+  width: 32px;
+  height: 32px;
+}

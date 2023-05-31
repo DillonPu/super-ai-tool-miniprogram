@@ -1,0 +1,20 @@
+<!--识别果蔬小程序-->
+<wxs module="numberFilters" src="../../utils/numberFilters.wxs"></wxs>
+<view class="box">
+  <view class="{{imageTempUrl=='' ? 'image_box' : 'image_box_selected'}}" bindtap="bindSelectImage">
+    <image src="{{imageTempUrl=='' ? '/images/common/camera_148x128.png':imageTempUrl}}"></image>
+  </view>
+  <button class="main_bgc" bindtap="binBtnLook">识别</button>
+  <view class="h_line"></view>
+  <block wx:if="{{lookResultArr.length>0}}" wx:for="{{lookResultArr}}" wx:for-item="item" wx:key="lookResultArr">
+    <view class="result_item">
+      <view>{{index+1}}、【{{item.name}} 】</view>
+      <view>识别度: {{numberFilters.toPercentFix3(item.score)}}</view>
+    </view>
+  </block>
+  <block wx:if="{{lookResultArr.length==0}}">
+    <view class="no_result">
+      无结果
+    </view>
+  </block>
+</view>

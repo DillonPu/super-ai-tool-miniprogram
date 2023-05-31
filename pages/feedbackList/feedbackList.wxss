@@ -1,0 +1,55 @@
+button{
+  border-radius: 15rpx;
+}
+
+.table {
+  border: 1rpx solid #eee;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 120rpx;
+}
+
+.td_index{
+  flex: 1;
+  text-align: center;
+  font-size: small;
+}
+.td_time{
+  flex: 3;
+  font-size: small;
+}
+
+.td_title{
+  flex: 3;
+  font-size: small;
+}
+
+.td_is_answer{
+  flex: 3;
+  font-size: small;
+}
+.th{
+  text-align: center;
+}
+
+.td{
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.bg-gray {
+  background: #eee;
+}
+
+.hasAnswer{
+  color: red;
+}
+
+.noAnswer{
+  color: #95ec69;
+}

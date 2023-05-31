@@ -1,0 +1,30 @@
+<!--pages/mini_express/miniExpress.wxml-->
+<view>
+<view class="box">
+  <picker class="" bindchange="selectExpressCompany" value="{{codeIndex}}" range="{{expressCompanyNameList}}">
+    <view>
+      {{expressCompanyList[codeIndex].name}}
+    </view>
+  </picker>
+  <input placeholder="请输入快递单号" class="order_input" type="text" confirm-type="search" bindinput="bindExpressOrderInput" bindconfirm="searchExpressPath"></input>
+</view>
+  <button class="main_bgc" bindtap="searchExpressPath">查询</button>
+</view>
+
+<block wx:if="{{expressResult.success=='true'}}">
+  <view class="timeLine" style=" width: 100%;">
+    <view class="on" wx:for="{{expressResult.traces}}" wx:key="mini_express" style="background:url('/images/mini_icon/dot.jpg') repeat-y 28.2% 0;">
+      <p class="p" style="background: url('/images/mini_icon/dot.jpg') no-repeat 100% 0;background-size: 36rpx 36rpx ;">
+        {{item.AcceptTime}}</p>
+      <label class="con">{{item.AcceptStation}}</label>
+    </view>
+  </view>
+  <view class="END">
+    <view>- THE END -</view>
+  </view>
+</block>
+<block wx:if="{{expressResult.success=='false'}}">
+  <view class="END">
+    <view>- 无结果，原因：{{expressResult.reason}} -</view>
+  </view>
+</block>

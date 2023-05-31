@@ -1,0 +1,106 @@
+<!--pages/my/my.wxml-->
+<view>
+  <view class="head comm-center">
+    <button bindtap="editRandomAvatar">
+      <image src="{{wxUserInfo.avatar}}"></image>
+    </button>
+    <block wx:if="{{wxUserInfo.isLogin}}">
+      <view>
+        <view wx:if="{{showNicknameInput}}">
+          <input class="nickname_input" focus="true" type="nickname" bindblur="editNickName" placeholder="请输入昵称" name="nickname" />
+        </view>
+        <view class="name" wx:if="{{!showNicknameInput}}" bindtap="showEditNickname">
+          {{wxUserInfo.nickName}}
+        </view>
+      </view>
+      <view class="remarks">注册时间：{{wxUserInfo.createTime}}</view>
+    </block>
+    <block wx:if="{{!wxUserInfo.isLogin}}">
+      <button class="main_bgc btn_login" bindtap="submitLogin">授权登录</button>
+    </block>
+
+  </view>
+  <view class="home-menu">
+    <view class="row comm-center" bindtap="bindtapMoney">
+      <view>￥{{wxUserInfo.totalMoney}}</view>
+      <view>余额</view>
+    </view>
+    <view class="row edge comm-center" bindtap="gotoLogListView">
+      <view>*{{wxUserInfo.totalPoint}}</view>
+      <view>积分</view>
+    </view>
+    <view class="row comm-center" bindtap="gotoLevelDescView">
+      <view>Lv.{{level}}</view>
+      <view>等级</view>
+    </view>
+  </view>
+  <view class="list-menu">
+    <view class="cell" bindtap="daySign">
+      <view class="left-icon comm-center">
+        <image src="/images/my_jilu/my_jilu_qiandao.png"></image>
+      </view>
+      <view class="txt">每日签到
+        <block wx:if="{{wxUserInfo.isLogin}}">
+          <image class="sign_img" src="/images/my_jilu/has_sign.png"></image>
+        </block>
+      </view>
+      <view class="right-icon comm-center">
+        <image src="/images/mini_icon/jiantou.png"></image>
+      </view>
+    </view>
+    <!-- <view class="cell">
+      <view class="left-icon comm-center">
+        <image src="/images/my_jilu/my_jilu_shiping.png"></image>
+      </view>
+      <view class="txt">看视频赚积分</view>
+      <view class="right-icon comm-center">
+        <image src="/images/mini_icon/jiantou.png"></image>
+      </view>
+    </view> -->
+    <view class="cell" bindtap="gotoAiChatLog">
+      <view class="left-icon comm-center">
+        <image src="/images/my_jilu/my_jilu_duihua.png"></image>
+      </view>
+      <view class="txt">Ai聊天记录</view>
+      <view class="right-icon comm-center">
+        <image src="/images/mini_icon/jiantou.png"></image>
+      </view>
+    </view>
+    <view class="cell" bindtap="gotoAiDrawLog">
+      <view class="left-icon comm-center">
+        <image src="/images/my_jilu/my_jilu_huihua.png"></image>
+      </view>
+      <view class="txt">Ai绘画记录</view>
+      <view class="right-icon comm-center">
+        <image src="/images/mini_icon/jiantou.png"></image>
+      </view>
+    </view>
+    <view class="cell" bindtap="gotoMoneyLogView">
+      <view class="left-icon comm-center">
+        <image src="/images/my_jilu/my_jilu_chongzhi.png"></image>
+      </view>
+      <view class="txt">充值记录</view>
+      <view class="right-icon comm-center">
+        <image src="/images/mini_icon/jiantou.png"></image>
+      </view>
+    </view>
+    <view class="cell" bindtap="gotoLogListView">
+      <view class="left-icon comm-center">
+        <image src="/images/my_jilu/my_jilu_jifen.png"></image>
+      </view>
+      <view class="txt">积分记录</view>
+      <view class="right-icon comm-center">
+        <image src="/images/mini_icon/jiantou.png"></image>
+      </view>
+    </view>
+    <view class="cell" bindtap="gotoFeedbackView">
+      <view class="left-icon comm-center">
+        <image src="/images/my_jilu/my_feedback.png"></image>
+      </view>
+      <view class="txt">问题反馈</view>
+      <view class="right-icon comm-center">
+        <image src="/images/mini_icon/jiantou.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

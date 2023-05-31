@@ -1,0 +1,19 @@
+<!--pages/levelLog/levelLog.wxml-->
+<view>
+  <block class='table' wx:if="{{levelDescList}}">
+		<view class='tr'>
+      <view class='td_index th bg-color'>等级</view>
+			<view class='td_value th bg-color'>等级说明(总积分:<text class="historyTotalPoint">{{historyTotalPoint}}</text>)</view>
+		</view>
+		<block wx:for="{{levelDescList}}" wx:key="index">
+			<view class='tr bg-gray' wx:if="{{index%2==0}}">
+      	<view class='td_index td'>Lv.{{item.level}}</view>
+				<view class='td_value td'>{{item.startTotalPoint}}~{{item.endTotalPoint}}</view>
+			</view>
+			<view class='tr' wx:else>
+        <view class='td_index td'>Lv.{{item.level}}</view>
+				<view class='td_value td'>{{item.startTotalPoint}}~{{item.endTotalPoint}}</view>
+			</view>
+		</block>
+	</block>
+</view>

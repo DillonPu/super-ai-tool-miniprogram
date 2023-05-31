@@ -1,0 +1,213 @@
+<!--弹幕文字-->
+<view class="barrage-view" catchtouchmove="true" bindtap="show_menu" style="  background-color: {{backgroundColor}};">
+  <canvas wx:if="{{selectedIndex==3}}" type="2d" id="starCanvas"></canvas>
+  <view wx:else animation="{{animationData}}" class="barrage-viewfly" style="color:{{textColor}};  font-size: {{textFontSize}};">
+    <view class='text-item' style=' text-shadow: {{textShadow}};transform:{{rotate_value}};margin-bottom:{{textMarginBottom}}' wx:for="{{textArr}}" wx:key="unique"><text>{{item}}</text></view>
+  </view>
+</view>
+
+<!--菜单-->
+<view class='barrage-menu' style="visibility:{{isShowMenu_style}};">
+  <view class='nav-item' data-selected-index='1' bindtap="change_text">
+    <image class="{{selectedIndex==1?'nav_img_border':''}}" src='/images/handBarrage/edit.png'></image>
+    <text>更改文字</text>
+  </view>
+  <view class='nav-item'  data-selected-index='2' bindtap="now_time">
+    <image class="{{selectedIndex==2?'nav_img_border':''}}" src='/images/handBarrage/time.png'></image>
+    <text>当前时间</text>
+  </view>
+  <!-- <view class='nav-item'  data-selected-index='3' bindtap="open_dao">
+    <image class="{{selectedIndex==3?'nav_img_border':''}}" src='/images/handBarrage/countTime.png'></image>
+    <text>倒计时</text>
+  </view> -->
+  <view class='nav-item'  data-selected-index='3' bindtap="beginFlashStar">
+    <image class="{{selectedIndex==3?'nav_img_border':''}}" src='/images/handBarrage/time.png'></image>
+    <text>闪星星</text>
+  </view>
+  <view class='nav-item' data-selected-index='4' bindtap="open_setting">
+    <image class="{{selectedIndex==4?'nav_img_border':''}}" src='/images/handBarrage/setting.png'></image>
+    <text>设置</text>
+  </view>
+</view>
+
+<!--弹幕输入框-->
+<view class="barrage-input-block"  style="visibility:{{isShowChangeText_style}};" >
+  <form bindsubmit="formSubmit" >
+    <view class="barrage-input"> <textarea  name="flyText" value="" hidden="{{isShowText}}" placeholder="请输入你的弹幕文字内容" maxlength='20'></textarea>    </view>
+    <view class="barrage-shoot"> 
+      <button size="mini" form-type="submit" >确定</button> 
+    </view>
+  </form>
+</view>
+
+<view class='barrage-setting' style="visibility:{{isShowSetting_style}};">
+  <view class='item'>
+    <view class='title'>方向</view>
+     <view class='classify_list'>
+      <view class="classify {{rotate_value=='rotate(90deg)'?'active':''}}" bindtap="change_direction" data-type='row'>
+        <text space="ensp" bindtap="change_direction" data-type='row'>  横屏  </text> 
+      </view>
+      <view class="classify {{rotate_value=='rotate(0deg)'?'active':''}}" bindtap="change_direction" data-type='col'>
+        <text space="ensp" bindtap="change_direction" data-type='col'>  竖屏  </text> 
+      </view>
+    </view>
+  </view>
+  <!-- <view style="  clear: both;"></view> -->
+  <view class='item'>
+    <view class='title'>速度</view>
+     <view class='classify_list'>
+      <view class="classify {{flyDuration==12000?'active':''}}" bindtap="change_speed" data-type='man'>
+        <text space="ensp" bindtap="change_speed" data-type='man'>   慢   </text> 
+      </view>
+      <view class="classify {{flyDuration==8000?'active':''}}" bindtap="change_speed" data-type='nor'>
+        <text space="ensp" bindtap="change_speed" data-type='nor'>  正常  </text> 
+      </view>
+      <view class="classify {{flyDuration==4000?'active':''}}" bindtap="change_speed" data-type='kuai'>
+        <text space="ensp" bindtap="change_speed" data-type='kuai'>   快   </text> 
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='title'>字号</view>
+     <view class='classify_list'>
+      <view class="classify {{textFontSize=='100px'?'active':''}}" bindtap="change_fontSize" data-type='small'>
+        <text space="ensp" bindtap="change_fontSize" data-type='small'>   小   </text> 
+      </view>
+      <view class="classify {{textFontSize=='120px'?'active':''}}" bindtap="change_fontSize" data-type='zhong'>
+        <text space="ensp" bindtap="change_fontSize" data-type='zhong'>   中   </text> 
+      </view>
+      <view class="classify {{textFontSize=='140px'?'active':''}}" bindtap="change_fontSize" data-type='big'>
+        <text space="ensp" bindtap="change_fontSize" data-type='small'>   大   </text> 
+      </view>
+      <view class="classify {{textFontSize=='160px'?'active':''}}" bindtap="change_fontSize" data-type='superbig'>
+        <text space="ensp" bindtap="change_fontSize" data-type='superbig'>  特大  </text> 
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='title'>发光</view>
+     <view class='classify_list'>
+      <view class="classify {{textShadow==''?'active':''}}" bindtap="change_fontShadow" data-type='close'>
+        <text space="ensp" bindtap="change_fontShadow" data-type='close'>   关   </text> 
+      </view>
+      <view class="classify" style="background-color:#ff1177;" bindtap="change_fontShadow" data-type='#ff1177'>
+        <text space="ensp" bindtap="change_fontShadow" data-type='#ff1177'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#ff01de;"  bindtap="change_fontShadow" data-type='#ff01de'>
+        <text space="ensp"  bindtap="change_fontShadow" data-type='#ff01de'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#228dff;" bindtap="change_fontShadow" data-type='#228dff'>
+        <text space="ensp" bindtap="change_fontShadow" data-type='#228dff'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#ffdd1b;" bindtap="change_fontShadow" data-type='#ffdd1b'>
+        <text space="ensp" bindtap="change_fontShadow" data-type='#ffdd1b'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#ff1177;" bindtap="change_fontShadow" data-type='#ff1177'>
+        <text space="ensp" bindtap="change_fontShadow" data-type='#ff1177'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#b6ff01;" bindtap="change_fontShadow" data-type='#b6ff01'>
+        <text space="ensp" bindtap="change_fontShadow" data-type='#b6ff01'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#ff9901;" bindtap="change_fontShadow" data-type='#ff9901'>
+        <text space="ensp" bindtap="change_fontShadow" data-type='#ff9901'>    \t   </text> 
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='title'>颜色</view>
+     <view class='classify_list'>
+      <view class="classify" style="background-color:#ffffff;" bindtap="change_fontColor" data-type='#ffffff'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#ffffff'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#010101;" bindtap="change_fontColor" data-type='#010101'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#010101'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#ff0101;" bindtap="change_fontColor" data-type='#ff0101'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#ff0101'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#ff1177;" bindtap="change_fontColor" data-type='#ff1177'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#ff1177'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#ff01ff;" bindtap="change_fontColor" data-type='#ff01ff'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#ff01ff'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#01ff01;" bindtap="change_fontColor" data-type='#01ff01'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#01ff01'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#0101ff;" bindtap="change_fontColor" data-type='#0101ff'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#0101ff'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#ffff01;" bindtap="change_fontColor" data-type='#ffff01'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#ffff01'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#01ffff;" bindtap="change_fontColor" data-type='#01ffff'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#01ffff'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#65318e;" bindtap="change_fontColor" data-type='#65318e'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#65318e'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#1e50a2;" bindtap="change_fontColor" data-type='#1e50a2'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#1e50a2'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#c9171e;" bindtap="change_fontColor" data-type='#c9171e'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#c9171e'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#016e54;" bindtap="change_fontColor" data-type='#016e54'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#016e54'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#e6b422;" bindtap="change_fontColor" data-type='#e6b422'>
+        <text space="ensp" bindtap="change_fontColor" data-type='#e6b422'>    \t   </text> 
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='title'>背景</view>
+     <view class='classify_list'>
+      <view class="classify" style="background-color:#000000;" bindtap="change_backColor" data-type='#000000'>
+        <text space="ensp" bindtap="change_backColor" data-type='#000000'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#65318e;" bindtap="change_backColor" data-type='#65318e'>
+        <text space="ensp" bindtap="change_backColor" data-type='#65318e'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#1e50a2;" bindtap="change_backColor" data-type='#1e50a2'>
+        <text space="ensp" bindtap="change_backColor" data-type='#1e50a2'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#c9171e;" bindtap="change_backColor" data-type='#c9171e'>
+        <text space="ensp" bindtap="change_backColor" data-type='#c9171e'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#ffffff;" bindtap="change_backColor" data-type='#ffffff'>
+        <text space="ensp" bindtap="change_backColor" data-type='#ffffff'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#016e54;" bindtap="change_backColor" data-type='#016e54'>
+        <text space="ensp" bindtap="change_backColor" data-type='#016e54'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#e6b422;" bindtap="change_backColor" data-type='#e6b422'>
+        <text space="ensp" bindtap="change_backColor" data-type='#e6b422'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#96514d;" bindtap="change_backColor" data-type='#96514d'>
+        <text space="ensp" bindtap="change_backColor" data-type='#96514d'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#617955;" bindtap="change_backColor" data-type='#617955'>
+        <text space="ensp" bindtap="change_backColor" data-type='#617955'>    \t   </text> 
+      </view>
+      <view class="classify" style="background-color:#eb6ea5;" bindtap="change_backColor" data-type='#eb6ea5'>
+        <text space="ensp" bindtap="change_backColor" data-type='#eb6ea5'>    \t   </text> 
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='barrage-dao' style="visibility:{{isShowDao_style}};">
+  <text class='title'  space="ensp" >设置倒计时分钟</text>
+
+  <!-- 主容器 -->  
+  <view class="stepper">  
+      <!-- 减号 -->  
+      <text class="{{minusStatus}}" bindtap="bindMinus">-</text>  
+      <!-- 数值 -->  
+      <input type="number" bindchange="bindManual" value="{{num}}" />  
+      <!-- 加号 -->  
+      <text class="normal" bindtap="bindPlus">+</text>  
+  </view>  
+</view>

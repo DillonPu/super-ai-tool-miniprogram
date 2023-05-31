@@ -1,0 +1,29 @@
+/* pages/pointLog/pointLog.wxss */
+@import "../../templates/recordTemplate/recordTemplate.wxss";
+
+.picker_view {
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+  align-items: center;
+}
+
+.picker_view picker {
+  border: #c0c0c0  solid 1rpx;
+  border-radius: 10rpx;
+  padding: 10rpx;
+}
+
+.picker_view .left_picker {
+  margin-left: 20rpx;
+}
+.picker_view .right_picker {
+  margin-right: 20rpx;
+}
+
+.btn{
+  font-size: 30rpx;
+    margin-top: 40rpx;
+}

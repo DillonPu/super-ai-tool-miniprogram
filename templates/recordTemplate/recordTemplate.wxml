@@ -1,0 +1,25 @@
+<!--导航按钮  -->
+<template name="recordLogTemplate" data="{{logList:logList,tag:tag}}">
+	<block class='table' wx:if="{{logList.length>0}}">
+		<view class='tr'>
+      <view class='td_index th bg-color'>序号</view>
+			<view class='td_time th bg-color'>时间</view>
+			<view class='td_value th bg-color'>{{tag}}</view>
+		</view>
+		<block wx:for="{{logList}}" wx:key="index">
+			<view class='tr bg-gray' wx:if="{{index%2==0}}">
+      	<view class='td_index td'>{{index+1}}</view>
+				<view class='td_time td'>{{item.time}}</view>
+				<view class='td_value td'>{{item.description}}<text class="{{item.value>0?'add_class':'subract_class'}}">{{item.value}}{{tag}}</text></view>
+			</view>
+			<view class='tr' wx:else>
+        <view class='td_index td'>{{index+1}}</view>
+				<view class='td_time td'>{{item.time}}</view>
+				<view class='td_value td'>{{item.description}}<text class="{{item.value>0?'add_class':'subract_class'}}">{{item.value}}{{tag}}</text></view>
+			</view>
+		</block>
+	</block>
+	<block wx:else> 
+  <view class="no_result">暂无{{tag}}记录</view>
+  </block>
+</template>

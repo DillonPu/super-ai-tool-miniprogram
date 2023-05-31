@@ -1,0 +1,6 @@
+<!--pages/aichatLog/aichatLog.wxml-->
+<import src="../../templates/chatLogTemplate/chatLogTemplate"></import>
+<view>
+  <template is="chatLogTemplate" data="{{toView:toView,scrollHeight:scrollHeight,triggered:triggered,msgList:msgList}}"></template>
+</view>
+

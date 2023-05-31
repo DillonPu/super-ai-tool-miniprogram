@@ -1,0 +1,1 @@
+<chat_component msgAnswerType="{{msgAnswerType}}" defaultFirstMsg="{{defaultFirstMsg}}"></chat_component>

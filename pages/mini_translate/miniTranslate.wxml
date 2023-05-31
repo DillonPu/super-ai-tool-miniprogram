@@ -1,0 +1,23 @@
+<!--pages/mini_translate/miniTranslate.wxml-->
+<view>
+  <!-- 输入翻译内容 -->
+  <textarea bindinput="bindFromTranslateTXtAreaInput" class="from_translate_box" maxlength="-1" value="{{originTxt}}"></textarea>
+  <!-- 语言选择区 -->
+  <view class="select_language_box">
+    <picker class="picker left_picker" bindchange="fromBindPickerChange" value="{{fromLanguageIndex}}" range="{{languageZhArray}}">
+      <view>
+        源语言：{{languageZhArray[fromLanguageIndex]}}
+      </view>
+    </picker>
+    <image src="/images/common/change_32x32.png" bindtap="bindChangeSelectLanguage"></image>
+    <picker class="picker right_picker" bindchange="toBindPickerChange" value="{{toLanguageIndex}}" range="{{languageZhArray}}">
+      <view>
+        目标语言：{{languageZhArray[toLanguageIndex]}}
+      </view>
+    </picker>
+  </view>
+  <!-- 翻译按钮，开始翻译 -->
+  <button class="main_bgc" bindtap="bindTranslate">翻译</button>
+  <!-- 显示翻译结果 -->
+  <textarea class="to_translate_box" maxlength="-1" value="{{translateToTxt}}"></textarea>
+</view>

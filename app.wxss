@@ -1,0 +1,32 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+.main_color{
+  color: #95ec69;
+}
+
+.main_bgc {
+  background-color: #95ec69;
+}
+
+.h_line{
+  height: 1rpx;
+  border-top:1px solid #c0c0c0;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.no_result {
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+  padding: 30rpx 50rpx 30rpx 50rpx;
+}

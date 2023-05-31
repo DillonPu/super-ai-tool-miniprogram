@@ -1,0 +1,20 @@
+<!--pages/pointLog/pointLog.wxml-->
+<import src="../../templates/recordTemplate/recordTemplate"></import>
+<view>
+  <view class="picker_view">
+    <picker class="left_picker" mode="date" end="{{endDate}}" bindchange="selectBeginDate">
+      <view>
+        开始日期：{{beginDate}}
+      </view>
+    </picker>
+    <picker class="right_picker" mode="date" start="{{beginDate}}" end="{{today}}" bindchange="selectEndDate">
+      <view>
+        结束日期：{{endDate}}
+      </view>
+    </picker>
+  </view>
+  <button class="main_bgc btn" bindtap="selectPointLog">查询</button>
+  <view>
+    <template is="recordLogTemplate" data="{{logList:logList,tag:tag}}"></template>
+  </view>
+</view>

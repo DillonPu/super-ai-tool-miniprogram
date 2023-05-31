@@ -1,0 +1,38 @@
+/* pages/mini_lookFruitsAndVeg/miniLookFruitsAndVeg.wxss */
+
+.box .image_box{
+  width: auto;
+  height: 400rpx;
+  border: 1rpx solid #c0c0cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box .image_box_selected {
+  width: auto;
+  height: 400rpx;
+  border: 1rpx solid #c0c0cc;
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.box .image_box image {
+  width: 148rpx;
+  height: 128rpx;
+}
+
+.box button {
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.box .result_item {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 45rpx;
+  border-bottom: solid 1rpx #c0c0cc;
+}

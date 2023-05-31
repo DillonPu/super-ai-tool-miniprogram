@@ -1,0 +1,70 @@
+<template name="chatLogTemplate" data="{{toView:toView,scrollHeight:scrollHeight,triggered:triggered,msgList:msgList}}">
+  <wxs module="filters" src="../../utils/addmul.wxs"></wxs>
+  <view>
+    <view>
+      <scroll-view scroll-y scroll-into-view='{{toView}}' style='height: {{scrollHeight}};' refresher-enabled="true" bindrefresherrefresh="loadMore" refresher-triggered="{{triggered}}">
+        <view class='scrollMsg'>
+          <block wx:key="key" wx:for='{{msgList}}' wx:for-index="index">
+            <!-- 时间显示，时间间隔为5分钟（5分钟内的消息不必再显示时间） -->
+            <view class="showTime" wx:if="{{item.showTime !== null}}">
+              {{item.showTime}}
+            </view>
+
+            <!-- 单个消息1 客服发出（左） -->
+            <view class="server" wx:if="{{item.jid == 'server'}}" id='msg-{{index}}'>
+              <view class="serverIcon">
+                <image src='/images/common/super-ai.jpg'></image>
+              </view>
+              <view class="serverContent">
+                <view class="Angle">
+                </view>
+                <view class="Data">
+                  <view class="leftMsg" wx:if="{{item.type == '1' }}">{{item.msg}}</view>
+
+                  <view class="leftMsg" wx:if="{{item.type == '2' }}">
+                    <image src="{{item.msg}}" class="image" catchtap="picture" data-src="{{item.msg}}"></image>
+                  </view>
+
+                  <view class="leftMsg" wx:if="{{item.type == '3' }}">
+                    <view bindtap='playVoice' data-item="{{item}}" data-index="{{index}}">
+                      <image style='height:32rpx;width:32rpx;' src="{{imgs.yyxx}}" mode="aspectFit"></image>
+                      {{filters.toFix(item.duration / 1000)}}"
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <!-- 单个消息2 用户发出（右） -->
+            <view class="customer" wx:else id='msg-{{index}}'>
+              <!-- 发起方的聊天框 -->
+              <view class="customerContent">
+                <view class="Data">
+
+                  <view class="rightMsg" wx:if="{{item.type == '1' }}">{{item.msg}}</view>
+
+                  <view class="rightMsg" wx:if="{{item.type == '2' }}">
+                    <image class="image" src="{{item.msg}}" catchtap="picture" data-src="{{item.msg}}"></image>
+                  </view>
+
+                  <view class="rightMsg" wx:if="{{item.type == '3' }}">
+                    <view bindtap='playVoice' data-item="{{item}}" data-index="{{index}}">
+                      {{filters.toFix(item.duration / 1000)}}"
+                      <image style='height:32rpx;width:32rpx;margin-right:28rpx;' src="{{imgs.yyxx}}" mode="aspectFit"></image>
+                    </view>
+                  </view>
+                </view>
+                <view class="AngleRight">
+                </view>
+              </view>
+              <!-- 发起方的头像 -->
+              <view class="serverIcon">
+                <image src='/images/common/default_head.png'></image>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,29 @@
+<wxs module="numberFilters" src="../../utils/numberFilters.wxs"></wxs>
+<view class="box">
+  <view class="{{imageTempUrl=='' ? 'image_box' : 'image_box_selected'}}" bindtap="bindSelectImage">
+    <image src="{{imageTempUrl=='' ? '/images/common/camera_148x128.png':imageTempUrl}}"></image>
+  </view>
+  <button class="main_bgc" bindtap="binBtnLook">识别</button>
+  <view class="h_line"></view>
+  <view class='tr'>
+      <view class='td_index th bg-color'>序号</view>
+			<view class='td_value th bg-color'>识别度</view>
+      <view class='td_baike th bg-color'>百科信息</view>
+		</view>
+  <block wx:if="{{lookResultArr.length>0}}" wx:for="{{lookResultArr}}" wx:for-item="item" wx:key="lookResultArr">
+    <view class='tr'>
+      <view class='td_index td'>{{index+1}}、{{item.name}}</view>
+      <view class='td_value td'>{{numberFilters.toPercentFix3(item.score)}}</view>
+      <view class="td_baike td">
+        <image src="{{item.baike_info.image_url}}"></image>
+        <text>{{item.baike_info.description}}</text>
+      </view>
+
+    </view>
+  </block>
+  <block wx:if="{{lookResultArr.length==0}}">
+    <view class="no_result">
+      无结果
+    </view>
+  </block>
+</view>
